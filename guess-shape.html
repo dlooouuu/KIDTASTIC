@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>KidTastic Speech Test</title>
+</head>
+<body>
+  <h1>🎤 KidTastic Speech Recognition</h1>
+  <button id="start">Start Listening</button>
+  <p id="output">Say something...</p>
+
+  <script src="https://cdn.jsdelivr.net/npm/vosk-browser@latest"></script> <!-- Vosk JS CDN -->
+  <script>
+    let model;
+    let recognizer;
+    let initialized = false;
+
+    // Initialize the Vosk model
+    async function initVosk() {
+      try {
+        console.log("Loading model...");
+        model = await Vosk.createModel("model"); // Ensure 'model' is the correct path to your Vosk model folder
+        recognizer = new Vosk.Recognizer(model, 16000); // 16kHz audio input
+        initialized = true;
+        document.getElementById('output').innerText = "Model loaded. Click Start.";
+        console.log("Model loaded successfully.");
+      } catch (err) {
+        console.error("Error loading model:", err);
+        document.getElementById('output').innerText = "Error loading model.";
+      }
+    }
+
+    // Start listening when the button is clicked
+    document.getElementById('start').addEventListener('click', async () => {
+      if (!initialized) {
+        document.getElementById('output').innerText = "Loading model...";
+        await initVosk();
+        return;
+      }
+
+      // Access the microphone and start speech recognition
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const audioContext = new AudioContext({ sampleRate: 16000 });
+        const source = audioContext.createMediaStreamSource(stream);
+        const processor = audioContext.createScriptProcessor(4096, 1, 1);
+
+        source.connect(processor);
+        processor.connect(audioContext.destination);
+
+        processor.onaudioprocess = function (e) {
+          const input = e.inputBuffer.getChannelData(0);
+          recognizer.acceptWaveform(input);
+          const result = recognizer.result();
+          if (result && result.text) {
+            document.getElementById('output').innerText = result.text;
+          }
+        };
+      } catch (err) {
+        console.error("Microphone access error:", err);
+        document.getElementById('output').innerText = "Microphone access error.";
+      }
+    });
+  </script>
+</body>
+</html>

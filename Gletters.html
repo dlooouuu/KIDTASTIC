@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pick the Letter Game</title>
+    <link rel="stylesheet" href="Gletters.css">
+</head>
+<body>
+    <img id="bg-image" src="picture/bgpic.png" alt="Background">
+    <div id="name-screen">
+        <div id="title-display">
+            <h1 class="title">Pick the Letter</h1>
+        </div>
+        <input type="text" id="player-name-input" placeholder="Enter your name" maxlength="20">
+        <div id="name-feedback" class="name-feedback">Please enter a name!</div>
+        <button id="submit-name-button">Submit</button>
+    </div>
+    <div id="game-container" class="hidden">
+        <div id="prompt">Tap the letter A.</div>
+        <div id="letter-container"></div>
+        <div id="feedback"></div>
+        <div id="word-display"></div>
+    </div>
+    <div id="feedback-popup" class="hidden">
+        <div id="feedback-content"></div>
+        <div id="star-rating" class="star-rating"></div>
+        <button id="play-again-btn">Play Again</button>
+    </div>
+    <button class="back-btn"></button>
+    <button class="settings-btn"></button>
+    <button class="score-tracker-btn disabled"><span>Score: <span id="score-display">0</span></span></button>
+    <div id="settings-panel" class="settings-panel hidden">
+        <button id="minimize-btn" class="minimize-btn">✖</button>
+        <h2>Settings</h2>
+        <div class="settings-content">
+            <label for="music-volume">Music Volume</label>
+            <input type="range" id="music-volume" min="0" max="100" value="50">
+            <label for="sfx-volume">SFX Volume</label>
+            <input type="range" id="sfx-volume" min="0" max="100" value="50">
+            <div class="button-row">
+                <button id="about-btn" class="about-btn">About</button>
+                <button id="exit-btn" class="exit-btn">Exit</button>
+            </div>
+        </div>
+    </div>
+    <div id="about-section" class="about-section hidden">
+        <button id="minimize-about-btn" class="minimize-about-btn">✖</button>
+        <h2>About</h2>
+        <p>Pick the Letter is a fun educational game for kids to learn the alphabet. Tap the correct letter to see words, with sounds to help you learn!</p>
+    </div>
+    <audio id="tap-sound" src="Tap.mp3"></audio>
+    <audio id="bg-music" src="background_music.mp3" loop></audio>
+    <audio id="correct-sound" src="correct.mp3"></audio>
+    <audio id="wrong-sound" src="wrong.mp3"></audio>
+    <audio id="cheer-sound" src="cheer.wav"></audio>
+    <audio id="cheers-sound" src="cheers.wav"></audio>
+    <audio id="cheerss-sound" src="cheerss.wav"></audio>
+    <audio id="cheersss-sound" src="cheersss.wav"></audio>
+    <audio id="cheerssss-sound" src="cheerssss.wav"></audio>
+    <audio id="cheersad-sound" src="cheersad.wav"></audio>
+    <script src="Gletters.js"></script>
+</body>
+</html>

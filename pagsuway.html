@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="pagsuway.css" rel="stylesheet">
+    <title>KidTasTic - Choose a Category</title>
+    <script defer src="renderer.js"></script>
+</head>
+<body>
+    <div id="teacher-name" class="teacher-name"></div>
+
+    <div class="button-container">
+        <button id="shapes-btn" class="option-btn"></button>
+        <button id="colors-btn" class="option-btn"></button>
+        <button id="numbers-btn" class="option-btn"></button>
+        <button id="letters-btn" class="option-btn"></button>
+    </div>
+
+    <button id="score-btn" class="score-btn">Scores</button>
+    <button id="settings-btn" class="settings-btn">
+        <img src="picture/settings.jpg" alt="Settings">
+    </button>
+
+    <div id="settings-panel" class="settings-panel">
+        <button id="minimize-btn" class="minimize-btn">×</button>
+        <h2>KIDTASTIC</h2>
+        
+        <div class="settings-content">
+            <label for="music-volume">Music:</label>
+            <input type="range" id="music-volume" min="0" max="100" value="50">
+            <label for="sfx-volume">SFX:</label>
+            <input type="range" id="sfx-volume" min="0" max="100" value="50">
+            <div class="button-row">
+                <button id="about-btn" class="about-btn">About</button>
+                <button id="logout-btn" class="logout-btn">Logout</button>
+                <button id="exit-btn" class="exit-btn">Exit</button>
+            </div>
+        </div>
+
+        <div id="about-section" class="about-section">
+            <button id="minimize-about-btn" class="minimize-about-btn">×</button>
+            <h2>About KidTastic</h2>
+            <p>Explore colors with fun games! Choose "Color the Shape" to paint shapes or "Guess the Color" to test your color knowledge!</p>
+        </div>
+    </div>
+
+    <div id="password-modal" class="password-modal hidden">
+        <div class="password-content">
+            <h2>Enter Password</h2>
+            <input type="password" id="password-input" placeholder="Teacher Password">
+            <div class="modal-buttons">
+                <button id="submit-password-btn">Submit</button>
+                <button id="cancel-password-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="wrong-password-modal" class="wrong-password-modal hidden">
+        <div class="wrong-password-content">
+            <button id="close-wrong-password-btn" class="close-wrong-password-btn">×</button>
+            <h2>Incorrect Password</h2>
+            <p>Please try again.</p>
+        </div>
+    </div>
+
+    <script src="pagsuway.js" defer></script>
+</body>
+</html>

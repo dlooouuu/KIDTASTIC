@@ -1,0 +1,628 @@
+/* Global Body Styling */
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100vh; /* Use viewport height for full coverage */
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* For positioning the image */
+    color: #FFFF00; /* All text yellow */
+    background-color: #000000; /* Black background */
+}
+
+/* Background Image */
+#background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire background */
+    z-index: -1; /* Place the image behind all other content */
+}
+
+/* Container */
+.container {
+    width: 95%;
+    max-width: 1200px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(50, 50, 50, 0.6)); /* Adjusted for black theme */
+    border-radius: 20px;
+    padding: 20px;
+    border: 3px solid #800080; /* Violet outline */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    height: auto;
+    max-height: 85vh;
+}
+
+/* Title */
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #FFFF00; /* Yellow text */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* Table Container */
+.table-container {
+    background-color: rgba(0, 0, 0, 0.3); /* Black theme */
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.3);
+    max-height: 60vh;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    border: 2px solid #800080; /* Violet outline */
+    width: 100%;
+}
+
+/* Table Styling */
+.score-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+}
+
+.score-table th {
+    padding: 12px;
+    background: linear-gradient(135deg, #66b3ff, #66ff99);
+    color: #FFFF00; /* Yellow text */
+    font-weight: bold;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    font-size: 1.2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border: 2px solid #800080; /* Violet outline */
+}
+
+.score-table td {
+    padding: 12px;
+    background-color: rgba(0, 0, 0, 0.15); /* Black theme */
+    border-radius: 10px;
+    font-size: 1.1rem;
+    color: #FFFF00; /* Yellow text */
+    border: 2px solid #800080; /* Violet outline */
+}
+
+/* Action Buttons */
+.action-btn {
+    padding: 6px 12px;
+    margin: 0 4px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    color: #FFFF00; /* Yellow text */
+    border: 2px solid #800080; /* Violet outline */
+}
+
+.edit-btn {
+    background: linear-gradient(135deg, #66b3ff, #3399ff);
+}
+
+.edit-btn:hover {
+    background: linear-gradient(135deg, #4d99e6, #1a80e6);
+    transform: scale(1.1);
+}
+
+.delete-btn {
+    background: linear-gradient(135deg, #ff6666, #cc3333);
+}
+
+.delete-btn:hover {
+    background: linear-gradient(135deg, #e64d4d, #b31a1a);
+    transform: scale(1.1);
+}
+
+/* Back and Settings Buttons */
+.back-btn, .settings-btn {
+    position: fixed;
+    top: 15px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid #800080; /* Violet outline */
+    outline: none;
+    cursor: pointer;
+    z-index: 9999;
+    transition: all 0.3s;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.back-btn {
+    left: 15px;
+}
+
+.settings-btn {
+    right: 15px;
+}
+
+.back-btn img, .settings-btn img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.back-btn:hover, .settings-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Player Name Display */
+.player-name {
+    position: absolute;
+    top: 25px;
+    left: 85px;
+    background: #8A2BE2;
+    color: #FFD700;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Reset Button */
+#reset-btn {
+    background: linear-gradient(135deg, #ff99cc, #ffccff);
+    color: #FFFF00; /* Yellow text */
+    border: 2px solid #800080; /* Violet outline */
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    font-size: 1.2rem;
+}
+
+#reset-btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #ff80b3, #ffb3ff);
+    box-shadow: 0 0 10px rgba(255, 153, 204, 0.9);
+}
+
+/* Modal Styling */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Black overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #333333, #666666); /* Black theme */
+    padding: 20px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 350px;
+    color: #FFFF00; /* Yellow text */
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    transform: scale(0.8);
+    transition: all 0.3s;
+    border: 2px solid #800080; /* Violet outline */
+}
+
+.modal.show .modal-content {
+    transform: scale(1);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: #FFFF00; /* Yellow text */
+}
+
+.modal-content input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #800080; /* Violet outline */
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #FFFF00; /* Yellow text */
+    background-color: rgba(0, 0, 0, 0.2); /* Black theme */
+}
+
+.modal-content input::placeholder {
+    color: #FFFF00; /* Yellow placeholder text */
+    opacity: 0.7;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.modal-buttons button {
+    padding: 8px 20px;
+    border: 2px solid #800080; /* Violet outline */
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    color: #FFFF00; /* Yellow text */
+}
+
+#save-edit-btn {
+    background: linear-gradient(135deg, #4caf50, #388e3c);
+}
+
+#save-edit-btn:hover {
+    background: linear-gradient(135deg, #45a049, #2e7d32);
+    transform: scale(1.1);
+}
+
+#cancel-edit-btn {
+    background: linear-gradient(135deg, #f44336, #d32f2f);
+}
+
+#cancel-edit-btn:hover {
+    background: linear-gradient(135deg, #e53935, #c62828);
+    transform: scale(1.1);
+}
+
+/* Confirmation Dialog */
+.confirm-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Black overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10001;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.confirm-dialog.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.confirm-dialog-content {
+    background: linear-gradient(135deg, #333333, #666666); /* Black theme */
+    padding: 20px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 350px;
+    color: #FFFF00; /* Yellow text */
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    transform: scale(0.8);
+    transition: all 0.3s;
+    border: 2px solid #800080; /* Violet outline */
+}
+
+.confirm-dialog.show .confirm-dialog-content {
+    transform: scale(1);
+}
+
+.confirm-dialog-content h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: #FFFF00; /* Yellow text */
+}
+
+.confirm-dialog-content p {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #FFFF00; /* Yellow text */
+}
+
+.confirm-dialog-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.confirm-dialog-buttons button {
+    padding: 8px 20px;
+    border: 2px solid #800080; /* Violet outline */
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    color: #FFFF00; /* Yellow text */
+}
+
+#confirm-yes-btn {
+    background: linear-gradient(135deg, #f44336, #d32f2f);
+}
+
+#confirm-yes-btn:hover {
+    background: linear-gradient(135deg, #e53935, #c62828);
+    transform: scale(1.1);
+}
+
+#confirm-no-btn {
+    background: linear-gradient(135deg, #9e9e9e, #7d7d7d);
+}
+
+#confirm-no-btn:hover {
+    background: linear-gradient(135deg, #8e8e8e, #6d6d6d);
+    transform: scale(1.1);
+}
+
+/* No Scores Message */
+#no-scores-message {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.25); /* Black theme */
+    border-radius: 15px;
+    margin: 10px;
+    border: 2px solid #800080; /* Violet outline */
+}
+
+#no-scores-message p {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #FFFF00; /* Yellow text */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Toast Notification */
+.toast-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10002;
+}
+
+.toast {
+    background: linear-gradient(135deg, #333333, #666666); /* Black theme */
+    color: #FFFF00; /* Yellow text */
+    padding: 12px 20px;
+    border-radius: 10px;
+    margin-top: 8px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s, transform 0.3s;
+    font-size: 1.2rem;
+    border: 2px solid #800080; /* Violet outline */
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Settings Panel */
+.settings-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background: rgba(0, 0, 0, 0.8); /* Black theme */
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    border: 2px solid #800080; /* Violet outline */
+}
+
+.settings-panel h2 {
+    font-size: 36px;
+    color: #FFFF00; /* Yellow text */
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+/* Minimize Button */
+.minimize-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 4px solid #800080; /* Violet outline */
+    cursor: pointer;
+    font-size: 24px;
+    color: #FFFF00; /* Yellow text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(128, 0, 128, 0.7);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    will-change: transform;
+}
+
+.minimize-btn:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+/* Music & SFX Sliders and Horizontal Buttons */
+.settings-content {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.settings-content label {
+    color: #FFFF00; /* Yellow text */
+    font-size: 22px;
+    margin: 10px 0 5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.settings-content input[type="range"] {
+    margin-bottom: 20px;
+    width: 90%;
+    height: 25px;
+    -webkit-appearance: none;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    outline: none;
+    border: 2px solid #800080; /* Violet outline */
+}
+
+.settings-content input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Horizontal Button Container */
+.button-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Button Styling */
+.about-btn, .exit-btn, .logout-btn {
+    background-color: #ff6600;
+    color: #FFFF00; /* Yellow text */
+    padding: 10px 20px;
+    border: 4px solid #800080; /* Violet outline */
+    cursor: pointer;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    box-shadow: 0 5px 0 #cc5500, 0px 0px 10px rgba(128, 0, 128, 0.7);
+    will-change: transform;
+}
+
+.about-btn:hover, .exit-btn:hover, .logout-btn:hover {
+    background-color: #ff7722;
+    transform: translateY(2px);
+    opacity: 0.9;
+}
+
+.about-btn:active, .exit-btn:active, .logout-btn:active {
+    transform: translateY(5px);
+    opacity: 0.8;
+}
+
+/* Logout Button */
+.logout-btn {
+    background-color: #ff3366;
+    box-shadow: 0 5px 0 #cc0044, 0px 0px 10px rgba(128, 0, 128, 0.7);
+}
+
+.logout-btn:hover {
+    background-color: #ff4477;
+    opacity: 0.9;
+}
+
+/* About Section */
+.about-section {
+    display: none;
+    background: rgba(0, 0, 0, 0.9); /* Black theme */
+    padding: 20px;
+    border-radius: 15px;
+    width: 90%;
+    height: auto;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    bottom: 20px;
+    border: 2px solid #800080; /* Violet outline */
+}
+
+.about-section h2 {
+    font-size: 24px;
+    color: #FFFF00; /* Yellow text */
+    margin: 0 0 10px;
+}
+
+.about-section p {
+    font-size: 16px;
+    color: #FFFF00; /* Yellow text */
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* About Section Minimize */
+.minimize-about-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: 4px solid #800080; /* Violet outline */
+    font-size: 24px;
+    cursor: pointer;
+    color: #FFFF00; /* Yellow text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(128, 0, 128, 0.7);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    will-change: transform;
+}
+
+.minimize-about-btn:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}

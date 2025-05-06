@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shapes - KidTasTic</title>
+    <link rel="stylesheet" href="shape.css">
+    <script defer src="renderer.js"></script>
+</head>
+<body>
+    <!-- Back Button -->
+    <button class="back-btn" onclick="goBack()"></button>
+
+    <!-- Settings Button -->
+    <button class="settings-btn" onclick="openSettings()"></button>
+
+    <h1 class="title">Let's Play and Learn Shapes!</h1>
+
+    <div class="button-container">
+        <button class="game-btn" onclick="startGame('match')">Match the Shape</button>
+        <button class="game-btn" onclick="startGame('guess')" disabled>Guess the Shape</button>
+        <button class="game-btn" onclick="startGame('puzzle')" disabled>Shape Puzzle</button>
+        <button class="game-btn" onclick="startGame('sort')" disabled>Shape Sort</button>
+    </div>
+
+    <!-- Settings Panel -->
+    <div id="settings-panel" class="settings-panel">
+        <button id="minimize-btn" class="minimize-btn">-</button>
+        <h2>KIDTASTIC</h2>
+        
+        <div class="settings-content">
+            <label for="music-volume">Music:</label>
+            <input type="range" id="music-volume" min="0" max="100" value="50">
+            <label for="sfx-volume">SFX:</label>
+            <input type="range" id="sfx-volume" min="0" max="100" value="50">
+            <div class="button-row">
+                <button id="about-btn" class="about-btn">About</button>
+                <button id="logout-btn" class="logout-btn">Logout</button>
+                <button id="exit-btn" class="exit-btn">Exit</button>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div id="about-section" class="about-section">
+            <button id="minimize-about-btn" class="minimize-about-btn">×</button>
+            <h2>About KidTastic</h2>
+            <p>Explore shapes with fun games! Choose "Match the Shape" to pair shapes, "Guess the Shape" to identify shapes, "Shape Puzzle" to solve patterns, or "Shape Sort" to organize shapes!</p>
+        </div>
+    </div>
+
+    <script src="shape.js"></script>
+</body>
+</html>

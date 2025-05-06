@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match the Shape - KidTasTic</title>
+    <link rel="stylesheet" href="match.css">
+</head>
+<body>
+    <img src="picture/bgpic.png" id="bg-image" alt="Background Image">
+
+    <!-- Name Input Screen -->
+    <div id="name-screen">
+        <h1 class="title">Match the Shapes</h1>
+        <input type="text" id="player-name-input" placeholder="Your Name" maxlength="15">
+        <div id="name-feedback" class="name-feedback hidden">Please enter your name!</div>
+        <button id="submit-name-button">Submit</button>
+    </div>
+
+    <!-- Title Display for Initial Load -->
+    <div id="title-display" class="hidden">
+        <h1 class="title">Match the Shapes</h1>
+    </div>
+
+    <!-- Score Display (Hidden during name input) -->
+    <div id="score-display" class="score-display hidden">Score: <span id="score-value">0</span></div>
+
+    <button class="back-btn" onclick="goBack()">.</button>
+    <button class="settings-btn" onclick="openSettings()">.</button>
+    <a href="scorer.html"><button class="score-tracker-btn" disabled>Scores</button></a>
+
+    <button id="start-btn" class="hidden"><img src="start.ico" alt="Start"></button>
+
+    <!-- Tutorial Container -->
+    <div id="tutorial-container" class="hidden">
+        <div id="tutorial-content">
+            <h2>How to Play</h2>
+            <p>Drag the shapes into their matching slots!</p>
+            <div id="tutorial-demo">
+                <div id="tutorial-circle" class="tutorial-shape" style="background-image: url('match/circle.png'); background-size: cover;"></div>
+                <div id="tutorial-slot" class="tutorial-slot"></div>
+                <div id="tutorial-cursor" class="tutorial-cursor"></div>
+            </div>
+            <button id="skip-tutorial-btn">Skip Tutorial</button>
+        </div>
+    </div>
+
+    <div id="game-container" class="hidden">
+        <div id="placeholders">
+            <div class="shape-slot" id="slot-circle"><span class="slot-feedback"></span></div>
+            <div class="shape-slot" id="slot-triangle"><span class="slot-feedback"></span></div>
+            <div class="shape-slot" id="slot-square"><span class="slot-feedback"></span></div>
+            <div class="shape-slot" id="slot-rectangle"><span class="slot-feedback"></span></div>
+            <div class="shape-slot" id="slot-star"><span class="slot-feedback"></span></div>
+        </div>
+        <div id="shapes">
+            <div class="shape" id="circle" draggable="false" style="background-image: url('match/circle.png'); background-size: cover;"></div>
+            <div class="shape" id="triangle" draggable="false" style="background-image: url('match/triangle.png'); background-size: cover;"></div>
+            <div class="shape" id="square" draggable="false" style="background-image: url('match/square.png'); background-size: cover;"></div>
+            <div class="shape" id="rectangle" draggable="false" style="background-image: url('match/rectangle.png'); background-size: cover;"></div>
+            <div class="shape" id="star" draggable="false" style="background-image: url('match/star.png'); background-size: cover;"></div>
+        </div>
+        <div id="feedback-popup" class="hidden">
+            <div id="feedback-content"></div>
+            <div id="star-rating" class="star-rating"></div>
+            <button id="play-again-btn">Play Again</button>
+        </div>
+        <div id="celebration" class="hidden"></div>
+    </div>
+
+    <!-- Settings Panel -->
+    <div id="settings-panel" class="settings-panel hidden">
+        <button id="minimize-btn" class="minimize-btn">×</button>
+        <h2>KIDTASTIC</h2>
+        <div class="settings-content">
+            <label for="music-volume">Music:</label>
+            <input type="range" id="music-volume" min="0" max="100" value="50">
+            <label for="sfx-volume">SFX:</label>
+            <input type="range" id="sfx-volume" min="0" max="100" value="50">
+            <div class="button-row">
+                <button id="about-btn" class="about-btn">About</button>
+                <button id="exit-btn" class="exit-btn">Exit</button>
+            </div>
+        </div>
+        <div id="about-section" class="about-section hidden">
+            <button id="minimize-about-btn" class="minimize-about-btn">×</button>
+            <p>"Match the Shapes" is a fun and educational game for kids! Drag each shape to its matching slot to score points. Perfect for learning shapes while having fun!</p>
+        </div>
+    </div>
+
+    <audio id="tap-sound" src="Tap.mp3"></audio>
+    <audio id="bg-music" src="bg-music.mp3" loop></audio>
+    <audio id="cheer-sound" src="sound/cheer.wav"></audio>
+    <audio id="cheers-sound" src="sound/cheers.wav"></audio>
+    <audio id="cheerss-sound" src="sound/cheerss.wav"></audio>
+    <audio id="cheersss-sound" src="sound/cheersss.wav"></audio>
+    <audio id="cheerssss-sound" src="sound/cheerssss.wav"></audio>
+    <audio id="sad-sound" src="sound/cheersad.wav"></audio>
+
+    <script src="match.js"></script>
+</body>
+</html>

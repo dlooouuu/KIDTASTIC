@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pop the Number</title>
+    <link rel="stylesheet" href="M-number.css">
+    <script defer src="M-number.js"></script>
+</head>
+<body>
+    <img src="picture/bgpic.png" alt="Background" class="background">
+
+    <button id="back-button" class="back-btn" onclick="goBack()">
+        <img src="back.png" alt="Back">
+    </button>
+
+    <button id="settings-button" class="settings-btn" onclick="openSettings()">
+        <img src="picture/settings.jpg" alt="Settings">
+    </button>
+
+    <div class="game-container">
+        <h1>Pop the Number</h1>
+
+        <!-- Name Input Screen -->
+        <div id="name-screen">
+            <input type="text" id="player-name-input" placeholder="Enter your name">
+            <button id="submit-name-button">Submit</button>
+        </div>
+
+        <!-- Tutorial Screen -->
+        <div id="tutorial-container" class="tutorial-container hidden">
+            <div id="tutorial-content">
+                <h2 class="tutorial-title">How to Play</h2>
+                <p>Pop the balloon with the number that matches the target number shown in the pentagon!</p>
+                <div id="tutorial-demo">
+                    <div class="tutorial-polygon">
+                        <span id="tutorial-target-number">5</span>
+                    </div>
+                    <div class="tutorial-balloon-container">
+                        <div id="tutorial-balloon-1" class="tutorial-balloon" style="left: 20%;">
+                            <div class="balloon-body">
+                                <span class="balloon-number">3</span>
+                            </div>
+                        </div>
+                        <div id="tutorial-balloon-2" class="tutorial-balloon" style="left: 50%;">
+                            <div class="balloon-body">
+                                <span class="balloon-number">5</span>
+                            </div>
+                        </div>
+                        <div id="tutorial-balloon-3" class="tutorial-balloon" style="left: 80%;">
+                            <div class="balloon-body">
+                                <span class="balloon-number">7</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tutorial-cursor" class="tutorial-cursor"></div>
+                </div>
+                <button id="skip-tutorial-btn" class="skip-tutorial-btn">Skip Tutorial</button>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="hidden">
+            <div class="pentagon">
+                <span id="target-number">?</span>
+            </div>
+            <div class="balloon-container"></div>
+            <div id="end-game-message" class="hidden">
+                <p id="message"></p>
+                <div id="star-rating" class="star-rating"></div>
+                <button id="play-again-button">Play Again</button>
+            </div>
+            <p class="stats">Attempts: <span id="tries-display">0/10</span></p>
+            <p class="stats">Score: <span id="score-display">0</span></p>
+        </div>
+    </div>
+
+    <button id="score-button" class="hidden">Score:</button>
+
+    <div id="fireworks" class="fireworks hidden"></div>
+
+    <!-- Settings Panel -->
+    <div id="settings-panel" class="settings-panel hidden">
+        <button id="minimize-btn" class="minimize-btn">-</button>
+        <h2>KIDTASTIC</h2>
+        <div class="settings-content">
+            <label for="music-volume">Music:</label>
+            <input type="range" id="music-volume" min="0" max="100" value="50">
+            <label for="sfx-volume">SFX:</label>
+            <input type="range" id="sfx-volume" min="0" max="100" value="50">
+            <div class="button-row">
+                <button id="about-btn" class="about-btn">About</button>
+                <button id="logout-btn" class="logout-btn">Logout</button>
+                <button id="exit-btn" class="exit-btn">Exit</button>
+            </div>
+        </div>
+        <div id="about-section" class="about-section hidden">
+            <button id="minimize-about-btn" class="minimize-about-btn">×</button>
+            <h2>About Number Pop Game</h2>
+            <p>Pop balloons with the correct number to match the target! Test your skills and aim for a high score!</p>
+        </div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="tap-sound" src="Tap.mp3"></audio>
+    <audio id="cheer-sound" src="sound/cheer.wav"></audio>
+    <audio id="cheers-sound" src="sound/cheers.wav"></audio>
+    <audio id="cheerss-sound" src="sound/cheerss.wav"></audio>
+    <audio id="cheersss-sound" src="sound/cheersss.wav"></audio>
+    <audio id="cheerssss-sound" src="sound/cheerssss.wav"></audio>
+    <audio id="sad-sound" src="sound/cheersad.wav"></audio>
+</body>
+</html>

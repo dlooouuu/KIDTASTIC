@@ -1,0 +1,516 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: yellow; /* All text is yellow */
+}
+
+/* Fullscreen page styling */
+body {
+    height: 100vh;
+    overflow: hidden;
+    background-color: #000; /* Black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Video container styling */
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+#background-video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the video covers the area */
+    top: 0;
+    left: 0;
+}
+
+/* Wavy animation */
+@keyframes wave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Logo - moved to bottom, made bigger */
+.logo {
+    font-size: 150px;
+    font-weight: bold;
+    display: flex;
+    gap: 5px;
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+    letter-spacing: 2px;
+}
+
+/* Wavy animation for logo */
+.logo span {
+    display: inline-block;
+    animation: wave 1.5s infinite ease-in-out;
+}
+
+/* Animation colors for each letter */
+.logo span:nth-child(1) { color: #ff0000; animation-delay: 0s; }
+.logo span:nth-child(2) { color: #ff6600; animation-delay: 0.1s; }
+.logo span:nth-child(3) { color: #ff0099; animation-delay: 0.2s; }
+.logo span:nth-child(4) { color: #0099ff; animation-delay: 0.3s; }
+.logo span:nth-child(5) { color: #6600cc; animation-delay: 0.4s; }
+.logo span:nth-child(6) { color: #cc00ff; animation-delay: 0.5s; }
+.logo span:nth-child(7) { color: #ff3399; animation-delay: 0.6s; }
+.logo span:nth-child(8) { color: #ff0000; animation-delay: 0.7s; }
+.logo span:nth-child(9) { color: #0dff00; animation-delay: 0.8s; }
+
+/* Welcome Subtitle */
+.welcome-subtitle {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-size: 1.5rem;
+}
+
+/* Start Button - moved to top, made bigger */
+#start-btn {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #2f00ff, #ff9900, #ff6600);
+    border: 3px solid violet; /* Violet outline */
+    padding: 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 0; /* Remove text visibility */
+    color: transparent;
+    text-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 15px rgba(238, 130, 238, 0.7); /* Violet shadow */
+    animation: pulse 2s infinite alternate;
+}
+
+.start-icon {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.2s ease-in-out;
+}
+
+#start-btn:hover {
+    transform: translateX(-50%) scale(1.08);
+    box-shadow: 0 0 25px rgba(238, 130, 238, 1), 0 0 50px rgba(0, 0, 0, 0.8);
+}
+
+#start-btn:hover .start-icon {
+    transform: scale(1.15);
+}
+
+/* Pulsating Animation */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 15px rgba(238, 130, 238, 0.7); /* Violet shadow */
+    }
+    100% {
+        box-shadow: 0 0 30px rgba(238, 130, 238, 1); /* Violet shadow */
+    }
+}
+
+/* Shimmering Effect */
+#start-btn::after {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    width: calc(100% + 6px);
+    height: calc(100% + 6px);
+    background: linear-gradient(45deg, transparent, rgba(238, 130, 238, 0.5), transparent); /* Violet shimmer */
+    border-radius: 50px;
+    opacity: 0.6;
+    animation: shimmer 3s infinite linear;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+/* Welcome Section */
+.welcome-section {
+    text-align: center;
+}
+
+/* Options Page */
+#options-page {
+    display: none;
+    width: 100%;
+}
+
+/* Forms container for horizontal layout */
+.forms-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Auth form - transparent background, made bigger */
+.auth-form {
+    background-color: transparent; /* Transparent background */
+    border-radius: 25px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 900px;
+    margin: 1.5rem auto;
+    box-shadow: none;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    display: none;
+}
+
+/* Horizontal form layout */
+.form-horizontal {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+/* Left column for form fields */
+.form-column-left {
+    flex: 1;
+}
+
+/* Right column for requirements and buttons */
+.form-column-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 250px;
+}
+
+/* Button container to push buttons to bottom */
+.button-container {
+    margin-top: auto;
+}
+
+.active-form {
+    display: block;
+}
+
+.auth-form h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    background-color: #000; /* Black background */
+    border: 4px solid violet; /* Violet outline */
+    padding: 0.5rem;
+    border-radius: 15px;
+}
+
+.form-description {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 1.2rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    border: 4px solid violet; /* Violet outline */
+    border-radius: 20px;
+    font-size: 1.1rem;
+    transition: border-color 0.3s;
+    background-color: #000; /* Black background */
+    color: yellow; /* Yellow text */
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #ff00ff; /* Brighter violet on focus */
+}
+
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    font-size: 1.2rem;
+}
+
+.requirements {
+    background-color: #1a1a1a; /* Slightly lighter black for contrast */
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border-left: 5px solid violet; /* Violet outline */
+}
+
+.requirements p {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.requirements ul {
+    list-style-type: none;
+    padding-left: 0.6rem;
+}
+
+.requirements li {
+    margin-bottom: 0.4rem;
+    position: relative;
+    padding-left: 1.8rem;
+    font-size: 1rem;
+}
+
+.requirements li:before {
+    content: '❌';
+    position: absolute;
+    left: 0;
+}
+
+.requirements li.valid:before {
+    content: '✅';
+}
+
+.login-info p {
+    line-height: 1.5;
+    font-size: 1.1rem;
+}
+
+.rainbow-btn {
+    width: 100%;
+    padding: 1rem;
+    border: 4px solid violet; /* Violet outline */
+    border-radius: 20px;
+    background-color: #000; /* Solid black background */
+    color: yellow; /* Yellow text */
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.rainbow-btn:hover {
+    transform: translateY(-4px);
+}
+
+.message {
+    margin-top: 1rem;
+    text-align: center;
+    min-height: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.text-btn {
+    background-color: #000; /* Black background */
+    border: 4px solid violet; /* Violet outline */
+    color: yellow; /* Yellow text */
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.text-btn:hover {
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(238, 130, 238, 0.7);
+}
+
+/* Decorations */
+.decoration {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.balloon, .star {
+    position: absolute;
+    font-size: 2rem;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-delay: var(--delay);
+}
+
+.balloon {
+    animation-name: float;
+}
+
+.star {
+    animation-name: twinkle;
+}
+
+.balloon:nth-child(1) { left: 10%; top: 20%; }
+.balloon:nth-child(2) { right: 10%; top: 70%; }
+.star:nth-child(3) { left: 30%; top: 30%; }
+.star:nth-child(4) { right: 40%; top: 60%; }
+
+/* Animations */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-80px) rotate(8deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.4); }
+}
+
+/* Confetti animation styles */
+.confetti {
+    position: fixed;
+    width: 12px;
+    height: 12px;
+    top: -12px;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: confettiFall 5s linear forwards;
+    z-index: 1000;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Responsive design - optimized specifically for Acer Swift 3 with Ryzen 5 */
+@media (max-width: 1920px) and (max-height: 1080px) {
+    .logo {
+        font-size: 130px;
+        bottom: 8%;
+    }
+    
+    #start-btn {
+        top: 20%;
+    }
+    
+    #background-video {
+        object-position: center;
+    }
+}
+
+/* Additional responsive breakpoints */
+@media (max-width: 1366px) {
+    .container {
+        max-width: 1000px;
+    }
+    
+    .auth-form {
+        max-width: 800px;
+        padding: 1.5rem;
+    }
+    
+    .logo {
+        font-size: 120px;
+        bottom: 8%;
+    }
+    
+    .welcome-subtitle {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 850px;
+    }
+    
+    .auth-form {
+        max-width: 750px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+    
+    .auth-form {
+        width: 90%;
+        padding: 1.3rem;
+    }
+    
+    .form-horizontal {
+        flex-direction: column;
+    }
+    
+    .form-column-left, 
+    .form-column-right {
+        width: 100%;
+    }
+    
+    .form-column-right {
+        margin-top: 1.2rem;
+    }
+    
+    .logo {
+        font-size: 100px;
+        bottom: 8%;
+    }
+    
+    .welcome-subtitle {
+        font-size: 1.1rem;
+    }
+}

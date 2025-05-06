@@ -1,0 +1,462 @@
+/* Prevent scrolling */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: url('picture/bgpic.png') no-repeat center fixed;
+    background-size: cover;
+}
+
+/* Title Styling */
+.title {
+    font-size: 3.5rem;
+    color: #FFFF00; /* Yellow text */
+    text-shadow: 0px 0px 10px rgba(128, 0, 128, 0.8); /* Simplified violet aura */
+    margin-bottom: 30px;
+    animation: wavyEffect 1.5s infinite;
+    will-change: transform;
+}
+
+/* Wavy Animation for Title */
+@keyframes wavyEffect {
+    0% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+    100% { transform: rotate(-5deg); }
+}
+
+/* Wavy Animation for Buttons */
+@keyframes wavyButton {
+    0% { transform: rotate(-3deg) translateY(0); }
+    50% { transform: rotate(3deg) translateY(-5px); }
+    100% { transform: rotate(-3deg) translateY(0); }
+}
+
+/* Button Container - Side by Side Layout */
+.button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+/* Octagonal Game Buttons */
+.game-btn {
+    width: 200px;
+    height: 200px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    border: 6px solid #800080; /* Violet outline */
+    cursor: pointer;
+    color: #FFFF00; /* Yellow text */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, box-shadow 0.3s ease-in-out, filter 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('picture/btn-sa-shape.png') no-repeat center;
+    background-size: cover;
+    box-shadow: 0px 0px 15px rgba(128, 0, 128, 0.8);
+    animation: wavyButton 3s infinite ease-in-out;
+    will-change: transform;
+    pointer-events: auto; /* Ensure buttons are clickable */
+}
+
+/* Disabled Game Buttons */
+.game-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    animation-play-state: paused;
+    pointer-events: none;
+}
+
+/* Button Hover Effect */
+.game-btn:hover:not(:disabled) {
+    transform: scale(1.25) rotate(10deg);
+    opacity: 1;
+    box-shadow: 0px 0px 25px rgba(255, 255, 0, 0.9);
+    filter: brightness(1.2);
+    animation-play-state: paused;
+}
+
+/* Pressed Effect */
+.game-btn:active:not(:disabled) {
+    transform: scale(0.9);
+    opacity: 0.8;
+}
+
+/* Circular Back Button */
+.back-btn {
+    position: absolute;
+    top: 25px;
+    left: 15px;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background: url('back.png') no-repeat center;
+    background-size: cover;
+    border: 8px solid #800080; /* Thicker violet outline */
+    box-shadow: 0px 0px 10px rgba(128, 0, 128, 0.7);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    cursor: pointer;
+    will-change: transform;
+    pointer-events: auto; /* Ensure button is clickable */
+}
+
+.back-btn:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+/* Circular Settings Button */
+.settings-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    border: 8px solid #800080; /* Thicker violet outline */
+    background: url('picture/settings.jpg') no-repeat center;
+    background-size: cover;
+    box-shadow: 0px 0px 10px rgba(128, 0, 128, 0.7);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    cursor: pointer;
+    will-change: transform;
+    pointer-events: auto; /* Ensure button is clickable */
+}
+
+.settings-btn:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+/* Settings Panel */
+.settings-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+.settings-panel h2 {
+    font-size: 36px;
+    color: white;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+/* Minimize Button */
+.minimize-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 4px solid #800080;
+    cursor: pointer;
+    font-size: 24px;
+    color: #FFFF00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(128, 0, 128, 0.7);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    will-change: transform;
+    pointer-events: auto; /* Ensure button is clickable */
+}
+
+.minimize-btn:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+/* Music & SFX Sliders and Horizontal Buttons */
+.settings-content {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.settings-content label {
+    color: white;
+    font-size: 22px;
+    margin: 10px 0 5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.settings-content input[type="range"] {
+    margin-bottom: 20px;
+    width: 90%;
+    height: 25px;
+    -webkit-appearance: none;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    outline: none;
+    pointer-events: auto; /* Ensure slider is interactive */
+}
+
+.settings-content input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Horizontal Button Container */
+.button-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Button Styling */
+.about-btn, .exit-btn, .logout-btn {
+    background-color: #ff6600;
+    color: #FFFF00;
+    padding: 10px 20px;
+    border: 4px solid #800080;
+    cursor: pointer;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    box-shadow: 0 5px 0 #cc5500, 0px 0px 10px rgba(128, 0, 128, 0.7);
+    will-change: transform;
+    pointer-events: auto; /* Ensure buttons are clickable */
+}
+
+.about-btn:hover, .exit-btn:hover, .logout-btn:hover {
+    background-color: #ff7722;
+    transform: translateY(2px);
+    opacity: 0.9;
+}
+
+.about-btn:active, .exit-btn:active, .logout-btn:active {
+    transform: translateY(5px);
+    opacity: 0.8;
+}
+
+/* Logout Button */
+.logout-btn {
+    background-color: #ff3366;
+    box-shadow: 0 5px 0 #cc0044, 0px 0px 10px rgba(128, 0, 128, 0.7);
+}
+
+.logout-btn:hover {
+    background-color: #ff4477;
+    opacity: 0.9;
+}
+
+/* About Section */
+.about-section {
+    display: none;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    width: 90%;
+    height: auto;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    bottom: 20px;
+}
+
+.about-section h2 {
+    font-size: 24px;
+    color: #333;
+    margin: 0 0 10px;
+}
+
+.about-section p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* About Section Minimize */
+.minimize-about-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: 4px solid #800080;
+    font-size: 24px;
+    cursor: pointer;
+    color: #FFFF00;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(128, 0, 128, 0.7);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    will-change: transform;
+    pointer-events: auto; /* Ensure button is clickable */
+}
+
+.minimize-about-btn:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .title {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+    .button-container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .game-btn {
+        width: 150px;
+        height: 150px;
+        font-size: 1.5rem;
+    }
+
+    .back-btn, .settings-btn {
+        width: 54px;
+        height: 54px;
+        top: 15px;
+    }
+
+    .back-btn {
+        left: 10px;
+    }
+
+    .settings-btn {
+        right: 10px;
+    }
+
+    .settings-panel {
+        width: 90%;
+        max-width: 350px;
+        height: 400px;
+    }
+
+    .settings-content label {
+        font-size: 20px;
+    }
+
+    .settings-content input[type="range"] {
+        height: 20px;
+    }
+
+    .settings-content input[type="range"]::-webkit-slider-thumb {
+        width: 25px;
+        height: 25px;
+    }
+
+    .button-row {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .about-btn, .exit-btn, .logout-btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .about-section h2 {
+        font-size: 20px;
+    }
+
+    .about-section p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+
+    .button-container {
+        gap: 20px;
+    }
+
+    .game-btn {
+        width: 120px;
+        height: 120px;
+        font-size: 1.2rem;
+    }
+
+    .back-btn, .settings-btn {
+        width: 46px;
+        height: 46px;
+        top: 10px;
+    }
+
+    .back-btn {
+        left: 10px;
+    }
+
+    .settings-btn {
+        right: 10px;
+    }
+
+    .settings-panel {
+        height: 350px;
+    }
+
+    .settings-content label {
+        font-size: 18px;
+    }
+
+    .settings-content input[type="range"]::-webkit-slider-thumb {
+        width: 20px;
+        height: 20px;
+    }
+
+    .about-btn, .exit-btn, .logout-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .about-section h2 {
+        font-size: 18px;
+    }
+
+    .about-section p {
+        font-size: 14px;
+    }
+}

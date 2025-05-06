@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KidTastic - Teacher Login</title>
+    <link rel="stylesheet" href="login.css">
+    <script defer src="renderer.js"></script>
+</head>
+<body>
+    <div class="video-container">
+        <video autoplay muted loop id="background-video">
+            <source src="background1.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="container">
+        <div class="welcome-section">
+            <div class="logo">
+                <span>K</span><span>I</span><span>D</span><span>T</span><span>A</span><span>S</span><span>T</span><span>I</span><span>C</span>
+            </div>
+
+            <button id="start-btn">
+                <img src="start.ico" alt="Start" class="start-icon">
+            </button>
+        </div>
+
+        <div id="options-page">
+            <div class="forms-container">
+                <!-- First Form: Signup Form (Shown by default) -->
+                <div class="auth-form signup-form active-form" id="signup-container">
+                    <h2>Teacher Sign Up</h2>
+                    <p class="form-description">Please create your account first!</p>
+                    
+                    <div class="form-horizontal">
+                        <div class="form-column-left">
+                            <div class="input-group">
+                                <input type="text" id="signup-username" placeholder="Create a Username">
+                                <div class="input-icon">👤</div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <input type="password" id="signup-password" placeholder="Choose a Password">
+                                <div class="input-icon">🔒</div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <input type="text" id="signup-fullname" placeholder="Your Full Name">
+                                <div class="input-icon">📝</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-column-right">
+                            <div class="requirements">
+                                <p>Requirements:</p>
+                                <ul>
+                                    <li id="req-username">Username must be at least 5 characters</li>
+                                    <li id="req-password">Password must be at least 6 characters</li>
+                                    <li id="req-fields">All fields must be filled</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="button-container">
+                                <button id="signup-btn" class="rainbow-btn" style="background-color: black;">Sign Up</button>
+                                <p id="signup-msg" class="message"></p>
+                                
+                                <div class="form-footer">
+                                    <p>Already have an account? <a href="#" id="show-login" class="text-btn" style="background-color: black;">Login here</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Form: Login Form (Hidden initially) -->
+                <div class="auth-form login-form" id="login-container">
+                    <h2>Teacher Login</h2>
+                    <p class="form-description">Welcome back, teacher!</p>
+                    
+                    <div class="form-horizontal">
+                        <div class="form-column-left">
+                            <div class="input-group">
+                                <input type="text" id="login-username" placeholder="Your Username">
+                                <div class="input-icon">👤</div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <input type="password" id="login-password" placeholder="Your Password">
+                                <div class="input-icon">🔒</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-column-right">
+                            <div class="requirements login-info">
+                                <p>Welcome!</p>
+                                <p style="font-weight: normal; margin-top: 10px;">Enter your credentials to access your KidTastic teacher dashboard.</p>
+                            </div>
+                            
+                            <div class="button-container">
+                                <button id="login-btn" class="rainbow-btn">Log In</button>
+                                <p id="login-msg" class="message"></p>
+                                
+                                <div class="form-footer">
+                                    <p>Don't have an account? <button id="show-signup" class="text-btn">Sign up here</button></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="decoration">
+                <div class="balloon" style="--delay: 0s">🎈</div>
+                <div class="balloon" style="--delay: 2s">🎈</div>
+                <div class="star" style="--delay: 1s">⭐</div>
+                <div class="star" style="--delay: 3s">⭐</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="kolorjeud.css" rel="stylesheet">
+    <title>KidTasTic - Match the Color</title>
+</head>
+<body>
+    <!-- Background Image -->
+    <img src="picture/bgpic.png" id="bg-image" alt="Background Image">
+
+    <!-- Background Music -->
+    <audio id="bg-music" loop>
+        <source src="background-music.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <!-- Audio for Click -->
+    <audio id="tap-sound" src="Tap.mp3"></audio>
+
+    <!-- Audio for Win/Lose -->
+    <audio id="cheer-sound-1" src="sound/cheer.wav"></audio>
+    <audio id="cheer-sound-2" src="sound/cheers.wav"></audio>
+    <audio id="cheer-sound-3" src="sound/cheerss.wav"></audio>
+    <audio id="cheer-sound-4" src="sound/cheersss.wav"></audio>
+    <audio id="cheer-sound-5" src="sound/cheerssss.wav"></audio>
+    <audio id="sad-sound" src="sound/cheersad.wav"></audio>
+
+    <!-- Back Button -->
+    <button class="back-btn" id="back-btn" data-url="color.html"></button>
+
+    <!-- Settings Button -->
+    <button id="settings-btn" class="settings-btn">
+        <img src="picture/settings.jpg" alt="Settings">
+    </button>
+
+    <!-- Score Button -->
+    <button class="score-btn hidden" id="score-btn" data-url="scorer.html">
+        Scores:
+    </button>
+
+    <!-- Name Input Screen -->
+    <div id="name-screen">
+        <h2 class="childish-text">Enter Your Name</h2>
+        <input type="text" id="player-name-input" placeholder="Your name">
+        <button id="submit-name-button">Submit</button>
+    </div>
+
+    <!-- Game Title -->
+    <h2 class="childish-text hidden" id="game-title">Match the Color</h2>
+
+    <!-- Start Button with Icon -->
+    <button id="start-btn" class="start-btn hidden">
+        <img src="start.ico" alt="Start" class="start-icon">
+    </button>
+
+    <!-- Tutorial Container -->
+    <div id="tutorial-container" class="tutorial-container hidden">
+        <div id="tutorial-content">
+            <h1 style="color: white;">How to Play</h1>
+            <p style="color: white;">Flip two cards to find matching colors! Test your memory and learn colors in this fun game!</p>
+            <div id="tutorial-demo">
+                <div id="tutorial-card-1" class="tutorial-card">
+                    <div class="color-square" style="background: linear-gradient(135deg, #FFFF00, #FFD700);"></div>
+                </div>
+                <div id="tutorial-card-2" class="tutorial-card">
+                    <div class="color-square" style="background: linear-gradient(135deg, #FFFF00, #FFD700);"></div>
+                </div>
+                <div id="tutorial-cursor" class="tutorial-cursor"></div>
+            </div>
+            <button id="skip-tutorial-btn" class="skip-tutorial-btn">Skip Tutorial</button>
+        </div>
+    </div>
+
+    <!-- Game Container -->
+    <div class="game-container hidden" id="game-container">
+        <div class="score-board">
+            <p class="score-display">Scores: <span id="score">0</span></p>
+            <p class="moves-display" id="moves-display">Moves: <span id="moves">0</span></p>
+        </div>
+        <div id="game-board" class="game-board"></div>
+    </div>
+
+    <!-- Feedback Popup (Replaces Win/Game Over Message) -->
+    <div id="feedback-popup" class="hidden">
+        <div id="feedback-content"></div>
+        <div id="star-rating" class="star-rating"></div>
+        <button id="play-again-btn" class="play-again-btn">Play Again</button>
+    </div>
+
+    <!-- Settings Panel -->
+    <div id="settings-panel" class="settings-panel hidden">
+        <button id="minimize-btn" class="minimize-btn">-</button>
+        <h2>KIDTASTIC</h2>
+        <div class="settings-content">
+            <label for="music-volume">Music:</label>
+            <input type="range" id="music-volume" min="0" max="100" value="50">
+            <label for="sfx-volume">SFX:</label>
+            <input type="range" id="sfx-volume" min="0" max="100" value="50">
+            <div class="button-row">
+                <button id="about-btn" class="about-btn">About</button>
+                <button id="exit-btn" class="exit-btn">Exit</button>
+                <button id="logout-btn" class="logout-btn">Logout</button>
+            </div>
+        </div>
+        <div id="about-section" class="about-section hidden">
+            <button id="minimize-about-btn" class="minimize-about-btn">×</button>
+            <h2>About Color Memory Game</h2>
+            <p>Flip two cards to find matching colors! Test your memory and learn colors in this fun game!</p>
+        </div>
+    </div>
+
+    <!-- Fireworks/Confetti Canvas -->
+    <canvas id="confetti-canvas"></canvas>
+    <div id="celebration"></div>
+
+    <script src="kolorjeud.js"></script>
+</body>
+</html>

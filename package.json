@@ -1,0 +1,50 @@
+{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "rebuild": "electron-rebuild -f -w sqlite3",
+    "dev": "electron . --enable-logging",
+    "debug": "electron . --remote-debugging-port=9222",
+    "lint": "eslint .",
+    "test": "echo \"Error: no tests specified\" && exit 1",
+    "clean": "rm -rf node_modules && npm install",
+    "package-mac": "electron-builder build --mac",
+    "package-win": "electron-builder build --win",
+    "package-linux": "electron-builder build --linux"
+  },
+  "devDependencies": {
+    "electron": "^36.1.0",
+    "electron-builder": "^24.6.4",
+    "electron-rebuild": "^3.2.9",
+    "eslint": "^8.50.0"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "howler": "^2.2.4",
+    "sqlite3": "^5.1.7"
+  },
+  "build": {
+    "appId": "com.yourcompany.myelectronapp",
+    "productName": "My Electron App",
+    "directories": {
+      "output": "dist"
+    },
+    "mac": {
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    }
+  }
+}

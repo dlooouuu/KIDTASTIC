@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score Tracker - KidTasTic</title>
+    <link rel="stylesheet" href="scorer.css">
+</head>
+<body>
+    <!-- Background Image -->
+    <img src="picture/bgpic.png" id="background-image" alt="Background">
+
+    <!-- Back Button - Larger size -->
+    <button class="back-btn" id="back-btn">
+        <img src="back.png" alt="Back">
+    </button>
+
+    <!-- Settings Button - Larger size -->
+    <button class="settings-btn" id="settings-btn">
+        <img src="picture/settings.jpg" alt="Settings">
+    </button>
+
+    <!-- Container - Adjusted size -->
+    <div class="container">
+        <h1 class="title">Score</h1>
+
+        <!-- No scores message -->
+        <div id="no-scores-message">
+            <p>No scores yet! Play some games first.</p>
+        </div>
+
+        <!-- Score Table -->
+        <div class="table-container">
+            <table class="score-table">
+                <thead>
+                    <tr>
+                        <th>Player</th>
+                        <th>Game</th>
+                        <th>Score</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="scores-list">
+                    <!-- Scores will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Reset Button -->
+        <button id="reset-btn">Reset All Scores</button>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <h2>Edit Player Name</h2>
+            <input type="text" id="edit-player-name" placeholder="Enter new name">
+            <div class="modal-buttons">
+                <button id="save-edit-btn">Save</button>
+                <button id="cancel-edit-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Dialog -->
+    <div id="confirm-dialog" class="confirm-dialog">
+        <div class="confirm-dialog-content">
+            <h2>Are you sure?</h2>
+            <p id="confirm-message">This action cannot be undone.</p>
+            <div class="confirm-dialog-buttons">
+                <button id="confirm-yes-btn">Yes, Delete</button>
+                <button id="confirm-no-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Panel -->
+    <div id="settings-panel" class="settings-panel">
+        <button id="minimize-btn" class="minimize-btn">-</button>
+        <h2>KIDTASTIC</h2>
+        <div class="settings-content">
+            <label for="music-volume">Music:</label>
+            <input type="range" id="music-volume" min="0" max="100" value="50">
+            <label for="sfx-volume">SFX:</label>
+            <input type="range" id="sfx-volume" min="0" max="100" value="50">
+            <div class="button-row">
+                <button id="about-btn" class="about-btn">About</button>
+                <button id="logout-btn" class="logout-btn">Logout</button>
+                <button id="exit-btn" class="exit-btn">Exit</button>
+            </div>
+        </div>
+        <div id="about-section" class="about-section">
+            <button id="minimize-about-btn" class="minimize-about-btn">×</button>
+            <h2>About Score Tracker</h2>
+            <p>View and manage your game scores! Edit player names, delete scores, or reset all scores to start fresh!</p>
+        </div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="bg-music" src="background-music.mp3" loop></audio>
+    <audio id="tap-sound" src="Tap.mp3"></audio>
+
+    <script src="scorer.js"></script>
+</body>
+</html>

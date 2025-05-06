@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="number.css" rel="stylesheet">
+    <title>KidTasTic - Numbers</title>
+    <script defer src="renderer.js"></script>
+</head>
+<body>
+    <img src="picture/bgpic.png" alt="Background" class="background">
+
+    <h2 class="childish-text">Let's Play and Learn Numbers!</h2>
+
+    <div class="button-container">
+        <a href="M-number.html" style="text-decoration: none;">
+            <button class="option-btn">Pop The<br>Number</button>
+        </a>
+        <a href="G-number.html" style="text-decoration: none;">
+            <button class="option-btn" disabled>Guess the<br>Number</button>
+        </a>
+        <a href="G-number.html" style="text-decoration: none;">
+            <button class="option-btn" disabled>GAME<br></button>
+        </a>
+        <a href="G-number.html" style="text-decoration: none;">
+            <button class="option-btn" disabled>GAME<br></button>
+        </a>
+    </div>
+
+    <button class="back-btn" onclick="goBack()"></button>
+
+    <button class="settings-btn" onclick="openSettings()"></button>
+
+    <div class="settings-panel" id="settingsPanel">
+        <button class="minimize-btn" id="minimizeBtn">✖</button>
+        <h2>Settings</h2>
+        <div class="settings-content">
+            <label>Music:</label>
+            <input type="range" id="music-volume" min="0" max="100" value="50">
+            <label>SFX:</label>
+            <input type="range" id="sfx-volume" min="0" max="100" value="50">
+            <div class="button-row">
+                <button class="about-btn" id="aboutBtn">About</button>
+                <button class="exit-btn" id="exitBtn">Exit</button>
+                <button class="logout-btn" id="logoutBtn">Logout</button>
+            </div>
+        </div>
+        <div class="about-section" id="aboutSection">
+            <button class="minimize-about-btn" id="minimizeAboutBtn">✖</button>
+            <h2>About</h2>
+            <p>KidTasTic is an educational game for kids to learn Shapes, Colors, numbers, and lastly Letters!</p>
+        </div>
+    </div>
+
+    <script src="number.js"></script>
+</body>
+</html>

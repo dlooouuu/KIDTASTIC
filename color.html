@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="color.css" rel="stylesheet">
+    <title>KidTasTic - Colors</title>
+    <script defer src="renderer.js"></script>
+    <script defer src="color.js"></script>
+</head>
+<body>
+    <!-- Background Image -->
+    <div id="bg-image"></div>
+
+    <!-- Back Button -->
+    <button class="back-btn" id="back-btn" data-url="pagsuway.html"></button>
+
+    <!-- Settings Button -->
+    <button id="settings-btn" class="settings-btn"></button>
+
+    <!-- Title -->
+    <h2 class="title">Let's Play and Learn Colors!</h2>
+
+    <!-- Button Container -->
+    <div class="button-container">
+        <button class="game-btn" id="color-shape-btn" data-url="kolorjeud.html">Match the Color</button>
+        <button class="game-btn" id="guess-color-btn" data-url="guess-color.html" disabled>Guess the Color</button>
+        <button class="game-btn" id="game-btn-3" data-url="color-puzzle.html" disabled>Color Puzzle</button>
+        <button class="game-btn" id="game-btn-4" data-url="color-sort.html" disabled>Color Sort</button>
+    </div>
+
+    <!-- Settings Panel -->
+    <div id="settings-panel" class="settings-panel">
+        <button id="minimize-btn" class="minimize-btn">×</button>
+        <h2>KIDTASTIC</h2>
+        
+        <div class="settings-content">
+            <label for="music-volume">Music:</label>
+            <input type="range" id="music-volume" min="0" max="100" value="50">
+            <label for="sfx-volume">SFX:</label>
+            <input type="range" id="sfx-volume" min="0" max="100" value="50">
+            <div class="button-row">
+                <button id="about-btn" class="about-btn">About</button>
+                <button id="logout-btn" class="logout-btn">Logout</button>
+                <button id="exit-btn" class="exit-btn">Exit</button>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <div id="about-section" class="about-section">
+            <button id="minimize-about-btn" class="minimize-about-btn">×</button>
+            <h2>About KidTastic</h2>
+            <p>Explore colors with fun games! Choose "Match the Color" to paint shapes, "Guess the Color" to test your color knowledge, "Color Puzzle" to solve patterns, or "Color Sort" to organize colors!</p>
+        </div>
+    </div>
+</body>
+</html>
